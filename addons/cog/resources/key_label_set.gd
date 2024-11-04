@@ -216,7 +216,7 @@ extends Resource
 func get_label(event: InputEventKey) -> String:
 	var physical_keycode: int = DisplayServer.keyboard_get_keycode_from_physical(event.physical_keycode)
 	var keycode: int = max(event.keycode, physical_keycode)
-	var label = _get_custom_label(keycode)
+	var label: String = _get_custom_label(keycode)
 
 	if label != "":
 		return label

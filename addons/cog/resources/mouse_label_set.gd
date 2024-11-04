@@ -15,7 +15,7 @@ extends Resource
 
 
 func get_label(event: InputEventMouseButton) -> String:
-	var label = _get_custom_label(event.button_index)
+	var label: String = _get_custom_label(event.button_index)
 
 	if label != "":
 		return label
