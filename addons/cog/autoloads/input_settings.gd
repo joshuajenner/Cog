@@ -11,7 +11,7 @@ const _SECTION: String = "keybindings"
 
 
 func _ready() -> void:
-	var config: ConfigFile = ConfigFile.new()
+	var config := ConfigFile.new()
 	var load_user_settings: Error = config.load(Cog.INPUT_SETTINGS_USER_PATH)
 	
 	if load_user_settings == OK:
@@ -28,7 +28,7 @@ func load_defualt_settings() -> void:
 
 
 func load_user_settings() -> void:
-	var config: ConfigFile = ConfigFile.new()
+	var config := ConfigFile.new()
 	var load_settings: Error = config.load(Cog.INPUT_SETTINGS_USER_PATH)
 	
 	if load_settings == OK:
@@ -36,7 +36,7 @@ func load_user_settings() -> void:
 
 
 func save_user_settings() -> void:
-	var config: ConfigFile = ConfigFile.new()
+	var config := ConfigFile.new()
 	var actions: Array[StringName] = InputMap.get_actions()
 	
 	for action: StringName in actions:
@@ -54,7 +54,7 @@ func assign_event(action: String, event: InputEvent, index: int) -> void:
 	else:
 		InputMap.action_erase_events(action)
 
-		for i in events.size():
+		for i: int in events.size():
 			if index == i:
 				InputMap.action_add_event(action, event)
 			else:
@@ -65,10 +65,7 @@ func assign_event(action: String, event: InputEvent, index: int) -> void:
 
 func unassign_event(action: String, index: int) -> void:
 	var events: Array[InputEvent] = InputMap.action_get_events(action)
-
-	for i in events.size():
-		if index == i:
-			InputMap.action_erase_event(action, events[i])
+	InputMap.action_erase_event(action, events[index])
 	
 	settings_changed.emit()
 
