@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs2ot0r2sud6b"]
+
+[ext_resource type="Script" path="res://examples/audio_settings/audio_settings.gd" id="1_tmrk7"]
+[ext_resource type="Script" path="res://addons/cog/classes/volume_slider/volume_slider.gd" id="2_qtunl"]
+
+[node name="AudioSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_tmrk7")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Master Volume" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBox/Master Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="VBox/Master Volume"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("2_qtunl")
+audio_bus = "Master"
+
+[node name="Music Volume" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBox/Music Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music
+"
+
+[node name="MusicSlider" type="HSlider" parent="VBox/Music Volume"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("2_qtunl")
+audio_bus = "Music"
+
+[node name="SFX Volume" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBox/SFX Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="VBox/SFX Volume"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("2_qtunl")
+audio_bus = "SFX"
+
+[node name="Buttons" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="ResetButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Reset"
+
+[node name="SaveButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Save"
+
+[connection signal="pressed" from="VBox/Buttons/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="VBox/Buttons/SaveButton" to="." method="_on_save_button_pressed"]

@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://mdt5ekvsxmeu"]
+
+[ext_resource type="Script" path="res://addons/cog/classes/window_mode_select/window_mode_select.gd" id="1_jwc1t"]
+[ext_resource type="Script" path="res://examples/video_settings/video_settings_menu.gd" id="1_w17ha"]
+[ext_resource type="Script" path="res://addons/cog/classes/resolution_select/resolution_select.gd" id="2_3h85w"]
+
+[node name="VideoSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_w17ha")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="WindowMode" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBox/WindowMode"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="WindowModeSelect" type="OptionButton" parent="VBox/WindowMode"]
+layout_mode = 2
+script = ExtResource("1_jwc1t")
+
+[node name="Resolution" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBox/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resolution"
+
+[node name="ResolutionSelect" type="OptionButton" parent="VBox/Resolution"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+fit_to_longest_item = false
+script = ExtResource("2_3h85w")
+
+[node name="Buttons" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="ResetButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Reset"
+
+[node name="SaveButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Save"
+
+[connection signal="pressed" from="VBox/Buttons/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="VBox/Buttons/SaveButton" to="." method="_on_save_button_pressed"]

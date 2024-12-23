@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ydx1do2fom3"]
+
+[ext_resource type="Script" path="res://addons/cog/autoloads/video_settings.gd" id="1_k5svp"]
+
+[node name="VideoSettings" type="Node"]
+script = ExtResource("1_k5svp")
+_resolution = Vector2i(1920, 1080)

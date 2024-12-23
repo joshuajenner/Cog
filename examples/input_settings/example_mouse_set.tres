@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MouseLabelSet" load_steps=2 format=3 uid="uid://dc2gichr6rxry"]
+
+[ext_resource type="Script" path="res://addons/cog/resources/mouse_label_set.gd" id="1_gqnpx"]
+
+[resource]
+script = ExtResource("1_gqnpx")
+NONE = ""
+MOUSE_LEFT = "Left Mouse"
+MOUSE_RIGHT = "Right Mouse"
+MOUSE_MIDDLE = "Middle Mouse"
+WHEEL_UP = "Wheel Up"
+WHEEL_DOWN = "Wheel Down"
+WHEEL_LEFT = "Wheel Left"
+WHEEL_RIGHT = "Wheel Right"
+XBUTTON1 = ""
+XBUTTON2 = ""
